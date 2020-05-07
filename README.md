@@ -3,7 +3,7 @@
 This repository contains the scripts for Quality Control (QC) steps and CNV calling with [Large PD](https://large-pd.org/) dataset from the study: "Genome-wide Analysis of Copy Number Variation in Latin American Parkinson’s Disease Patients"
 
 **Usage**:
-`code` 
+`code`  
 
     $ script
     

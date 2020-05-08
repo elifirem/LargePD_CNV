@@ -3,7 +3,8 @@
 This repository contains the scripts for Quality Control (QC) steps and CNV calling from the study: "Genome-wide Analysis of Copy Number Variation in Latin American Parkinson’s Disease Patients" with using the [LARGE-PD](https://large-pd.org/) cohort
 
 **Usage**:
-`code`  
+
+`PRe_QC.sh` plink command lines for the QC steps before PCA  
 
     $ script
     

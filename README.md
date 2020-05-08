@@ -4,7 +4,7 @@ This repository contains the scripts for Quality Control (QC) steps and CNV call
 
 **Usage**:
 
-`PRe_QC.sh` plink command lines for the QC steps before PCA  
+`Pre_QC.sh` plink command lines for the QC steps before PCA  
 
     $ script
     

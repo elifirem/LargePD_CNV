@@ -6,7 +6,8 @@ This repository contains the scripts for Quality Control (QC) steps and CNV call
 
 `Pre_QC.sh` plink command lines for the QC steps before PCA  
 
-    $ script
+
+
     
 **Software**:
 

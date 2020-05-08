@@ -1,6 +1,4 @@
-
-
-##  Plink call rate filtering: filters out all samples with missing call rates exceeding 0.04 to be removed
+##  Call rate filtering: filters out all samples with missing call rates exceeding 0.04 to be removed
 plink --bfile LARGE_PD_final --mind 0.04 --make-bed --keep-allele-order --out LARGE_PD_final_CR_filtered
 
 

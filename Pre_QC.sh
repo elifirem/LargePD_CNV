@@ -35,6 +35,7 @@ awk '{print $2}' Inver.bim  > Inver_snps
 cat MHC_snps Inver_snps > remove_snps.txt
 plink --bfile For_PCA_maf5_geno2_mind5_hwe --exclude remove_snps.txt --make-bed --keep-allele-order --out For_PCA_maf5_geno2_mind5_hwe_MHCInverfree
 
+
 ##  LD pruning
 # Randomly pick 300 individuals
 awk '{print $1 "\t" $2}' For_PCA_maf5_geno2_mind5_hwe_MHCInverfree.fam > all_indiv
@@ -43,6 +44,7 @@ shuf -n 300 all_indiv > random300
 plink --bfile For_PCA_maf5_geno2_mind5_hwe_MHCInverfree --keep random300 --make-bed --keep-allele-order --out Random300
 plink --bfile Random300 --indep-pairwise 200 100 0.2 --keep-allele-order --out Random300_LDpruned
 plink --bfile For_PCA_maf5_geno2_mind5_hwe_MHCInverfree --exclude Random300_LDpruned.prune.out --make-bed --keep-allele-order --out For_PCA_maf5_geno2_mind5_hwe_MHCInverfree_LDpruned
+
 
 ##  PCA
 plink --bfile For_PCA_maf5_geno2_mind5_hwe_MHCInverfree_LDpruned --pca header tabs --keep-allele-order --out data_pca

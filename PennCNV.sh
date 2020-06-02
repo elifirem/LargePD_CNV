@@ -1,5 +1,5 @@
 ## Create intensity files from the initial Illumina report
-perl PennCNV/1.0.5/split_illumina_report.pl -prefix PD_CNV/data/intensity_files/ PD_CNV/data/mata_grc_mega_1_all_180305_FinalReport.txt 
+perl PennCNV/1.0.5/split_illumina_report.pl -prefix PD_CNV/data/intensity_files/ mata_grc_mega_1_all_180305_FinalReport.txt 
 
 ## Make a population frequency of B allele (PFB) file from the LargePD cohort (this step can be performed with subpopulations depending on the PCA)
 # Extract necessary columns to create SNP positions file from the initial report
@@ -7,7 +7,7 @@ awk -F '\t' '{print $1,$5,$6} NR==1779829{exit}' mata_grc_mega_1_all_180305_Fina
 # Rearrange columns and change field separator from space to tab delim
 awk 'BEGIN {FS=" "; OFS="\t"} {print $1,$3,$2}' snppos.txt > snppos_final.txt
 # Make PFB file: (int_files_list.txt includes all samples to call the CNVs from)
-perl PennCNV/1.0.5/compile_pfb.pl -listfile PD_CNV/data/int_files_list.txt --snpposfile snppos_final.txt -output Large_PD.pfb
+perl PennCNV/1.0.5/compile_pfb.pl -listfile int_files_list.txt --snpposfile snppos_final.txt -output Large_PD.pfb
 
 
 ## Make GC model file to adjust for waviness

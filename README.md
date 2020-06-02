@@ -4,9 +4,9 @@ This repository contains the scripts for Quality Control (QC) steps and CNV call
 
 **Usage**:
 
-`Pre_QC.sh` plink command lines for the QC steps before PCA  
+`Pre_QC.sh` plink command lines for the QC steps before PCA, includes admixture run, and relatedness estimates  
 
-
+`PennCNV.sh` CNV calling with PennCNV
 
     
 **Software**:

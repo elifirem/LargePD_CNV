@@ -21,3 +21,5 @@ This repository contains the scripts for Quality Control (QC) steps and CNV call
 
 5. R: R Core Team (2019). R: A language and environment for statistical computing. R Foundation for Statistical Computing, Vienna, Austria. URL: https://www.R-project.org/
 
+6. Perl: The Perl programming language URL: https://www.perl.org/get.html
+

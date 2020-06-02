@@ -12,6 +12,8 @@ perl PennCNV/1.0.5/filter_cnv.pl Large_PD_conf.clean.rawcnv -qclogfile Large_PD_
 # Calculate the median+3*SD of the Waviness #qcwf
 
 
+......
+
 perl PennCNV/1.0.5/filter_cnv.pl Large_PD_conf.clean.rawcnv -qclogfile Large_PD_conf.log -qcnumcnv 1639 -qclrrsd 0.2720423 -qcwf 0.03110594 -qcbafdrift 0.001405433 -qcpassout Large_PD_conf2.clean.qcpass -qcsumout Large_PD_conf2.clean.qcsum -out Large_PD_conf2.clean.goodcnv
 perl PennCNV/1.0.5/scan_region.pl Large_PD_conf2.clean.goodcnv spurious_regions.txt -minqueryfrac 0.5 > Large_PD_conf2.spurious; fgrep -v -f Large_PD_conf2.spurious Large_PD_conf2.clean.goodcnv > /home/sarihae/isilon/Irem/PD_CNV/data/
 

@@ -6,11 +6,10 @@ perl PennCNV/1.0.5/filter_cnv.pl Large_PD_conf.clean.rawcnv -qclogfile Large_PD_
 # Plot the distribution of number of CNVs per sample in a histogram and decide the cutoff
 # Exclude all samples which have more CNVs than the cutoff
 
-# By using the samples that passed the NumCNV cutoff
+# By using the samples that passed the number of CNV cutoff:
 # Calculate the median+3*SD of the LRRSD #qclrrsd
 # Calculate the median+3*SD of the B allele frequency (BAF) drift #qcbafdrift
 # Calculate the median+3*SD of the Waviness #qcwf
-
 
 
 perl PennCNV/1.0.5/filter_cnv.pl Large_PD_conf.clean.rawcnv -qclogfile Large_PD_conf.log -qcnumcnv 1639 -qclrrsd 0.2720423 -qcwf 0.03110594 -qcbafdrift 0.001405433 -qcpassout Large_PD_conf2.clean.qcpass -qcsumout Large_PD_conf2.clean.qcsum -out Large_PD_conf2.clean.goodcnv

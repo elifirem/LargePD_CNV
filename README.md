@@ -11,9 +11,9 @@ This repository contains the scripts for quality control (QC) steps and CNV call
 
 `Post_QC.sh` command lines for post QC filtering steps
 
-`Code_QS.R` uses R script by [Macé et al.](https://pubmed.ncbi.nlm.nih.gov/27402902/) to calculate a quality score (QS) to improve and further filter PennCNV calls. This QS estimates the probability of a CNV called by PennCNV to be confirmed by other software.
+`Code_QS.R` for further filtering CNV calls: calculates a quality score (QS) which estimates the probability of a CNV called by PennCNV to be confirmed by other software. R script adapted from [Macé et al.](https://pubmed.ncbi.nlm.nih.gov/27402902/)
 
-    
+
 **Software**:
 
 1. PLINK 1.9: Chang CC, Chow CC, Tellier LCAM, Vattikuti S, Purcell SM, Lee JJ (2015) Second-generation PLINK: rising to the challenge of larger and richer datasets. GigaScience, 4. URL: https://www.cog-genomics.org/plink2/

@@ -17,8 +17,9 @@ sort file: sort -k 2,2 -k 3,3n  gc5Base.txt > sorted_gc5Base.txt
 # Make GC model:
 perl PennCNV/1.0.5/cal_gc_snp.pl sorted_gc5Base.txt Large_PD.pfb -output Large_PD.gcmodel
 
-## CNV calling with GC model, with confidence scores for each CNV call
+## CNV calling with GC model, and confidence scores for each CNV call
 perl PennCNV/1.0.5/detect_cnv.pl -test -confidence -hmm PennCNV/1.0.4/lib/hhall.hmm -pfb Large_PD.pfb --list int_files_list.txt -log Large_PD_conf.log -out Large_PD_conf.adjusted.rawcnv -gcmodel Large_PD.gcmodel
 
 ## Merging adjacent CNV calls (the --fraction argument is set as 0.2 by default)
 perl PennCNV/1.0.5/clean_cnv.pl combineseg Large_PD_conf.adjusted.rawcnv -signalfile Large_PD.pfb -out Large_PD_conf.clean.rawcnv
+

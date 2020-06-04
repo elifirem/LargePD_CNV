@@ -1,6 +1,6 @@
 # LARGE-PD CNV
 
-This repository contains the scripts for Quality Control (QC) steps and CNV calling from the study: "Genome-wide Analysis of Copy Number Variation in Latin American Parkinson’s Disease Patients" using [LARGE-PD](https://large-pd.org/) cohort
+This repository contains the scripts for Quality Control (QC) steps and CNV calling from the study: [Genome-wide Analysis of Copy Number Variation in Latin American Parkinson’s Disease Patients](https://www.medrxiv.org/content/10.1101/2020.05.29.20100859v2) using [LARGE-PD](https://large-pd.org/) cohort
 
 **Usage**:
 

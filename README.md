@@ -8,6 +8,7 @@ This repository contains the scripts for Quality Control (QC) steps and CNV call
 
 `PennCNV.sh` CNV calling with PennCNV
 
+`Post_QC.sh` command lines for post processing QC steps
     
 **Software**:
 

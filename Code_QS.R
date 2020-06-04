@@ -119,16 +119,16 @@ mean(largePD_NumCNVs$NumCNV)+3*sd(largePD_NumCNVs$NumCNV)
 largePD_NumCNVs$Flag2 <- ifelse(largePD_NumCNVs$NumCNV > 96.8, "Out8.2", "In")
 colnames(largePD_NumCNVs)[1] <- "Sample_Name"
 largePD_in$Sample_Name <- as.factor(largePD_in$Sample_Name)
-largePD_in_new <- left_join(largePD_in, largePD_NumCNVs, "Sample_Name") #flagged version with 'Out8.2'
+largePD_in_new <- left_join(largePD_in, largePD_NumCNVs, "Sample_Name")
 
 #-To merge excluded ones
 largePD_fail_NumCNVs$Flag2 <- "Out8.1"
 colnames(largePD_fail_NumCNVs)[1] <- "Sample_Name"
 largePD_out$Sample_Name <- as.factor(largePD_out$Sample_Name)
-largePD_out_new <- left_join(largePD_out, largePD_fail_NumCNVs, "Sample_Name") #flagged version with 'Out8.2'
+largePD_out_new <- left_join(largePD_out, largePD_fail_NumCNVs, "Sample_Name") 
 
-cnv_data_global_all <- rbind(largePD_in_new, largePD_out_new) # Version with passing filters
-cnv_data_global_ins <- subset(cnv_data_global_all, Flag2 == "In")
+cnv_data_global_all <- rbind(largePD_in_new, largePD_out_new) # All CNVs with flags
+cnv_data_global_ins <- subset(cnv_data_global_all, Flag2 == "In") # To count passed CNVs so far
 
 #  Count number of samples and CNV after cleaning
 log_data    <- c(log_data, nb_sample_after = length(unique(droplevels(cnv_data_global_ins$Sample_Name))), 
@@ -140,13 +140,12 @@ log_data    <- c(log_data, nb_sample_after = length(unique(droplevels(cnv_data_g
                  nb_duplication = length(which(cnv_data_global_all$Copy_Number > 2)))
 log_data
 
-rm(largePD_1mb, largePD_all, largePD_fail_NumCNVs, largePD_fail1, largePD_fail2, largePD_in, 
-   largePD_in_new, largePD_NumCNVs, largePD_out, largePD_out_new, largePD_pass)
+
 ####################################################################################################
 
 #  Save the data - QC passed version
-save(cnv_data_global_ins, file = 'data/cnv_data_global_ins_conf2.rdata')
-save(cnv_data_global_all, file = 'data/cnv_data_global_all_conf2.rdata')
+save(cnv_data_global_ins, file = 'data/cnv_data_global_ins.rdata')
+save(cnv_data_global_all, file = 'data/cnv_data_global_all.rdata')
 
 
 #################################### QS calculation ################################################
@@ -162,14 +161,9 @@ calculate_QS <- function(cnv_data, model_data){
 }
 
 
-#  Load the CNV data, and create separate variable for the del and dup
-load(file = 'data/cnv_data_global_all_conf2.rdata')
-colnames(cnv_data_global_all)[17] <- "NumCNV"
-cnv_data_global_sub <- cnv_data_global_all
-
-
-cnv_data_global_del <- subset(cnv_data_global_sub, subset = Copy_Number < 2)
-cnv_data_global_dup <- subset(cnv_data_global_sub, subset = Copy_Number > 2)
+#  Create separate variable for the deletions and duplications
+cnv_data_global_del <- subset(cnv_data_global_all, subset = Copy_Number < 2)
+cnv_data_global_dup <- subset(cnv_data_global_all, subset = Copy_Number > 2)
 
 #  define the QS coefficients
 QS_coefficient_duplication              <- cbind(c(-0.81529185, 3.90248885, -0.90184846, 0.34376765, -0.06351849, -0.01497046, -0.30665878, -0.10354156, -0.44829901, 0.06039380, 0.03645913), rep(0, 11))
@@ -185,13 +179,13 @@ colnames(QS_coefficient_deletion)   <- c('Estimate', 'Pr(>|z|)')
 QS_deletion     <- calculate_QS(cnv_data = cnv_data_global_del, model_data = QS_coefficient_deletion)
 QS_duplication  <- calculate_QS(cnv_data = cnv_data_global_dup, model_data = QS_coefficient_duplication)
 
-QS                                          <- matrix(NA, nrow = nrow(cnv_data_global_sub), ncol = 1)
-QS[which(cnv_data_global_sub$Copy_Number < 2),] <- QS_deletion * -1
-QS[which(cnv_data_global_sub$Copy_Number > 2),] <- QS_duplication
+QS                                          <- matrix(NA, nrow = nrow(cnv_data_global_all), ncol = 1)
+QS[which(cnv_data_global_all$Copy_Number < 2),] <- QS_deletion * -1
+QS[which(cnv_data_global_all$Copy_Number > 2),] <- QS_duplication
 colnames(QS)                                <- c('Quality_Score')
-cnv_data_global    <- cbind(cnv_data_global_sub, QS)
+cnv_data_global_QS    <- cbind(cnv_data_global_all, QS)
 
 
-#  Save the new CNV dataset with the Quality Score the deletion and duplication
-save(cnv_data_global, file = 'data/cnv_data_global_QS.rdata') 
+#  Save the new CNV dataset with the Quality Score for deletions and duplications
+save(cnv_data_global_QS, file = 'data/cnv_data_global_QS.rdata') 
 

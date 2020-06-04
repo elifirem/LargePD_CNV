@@ -2,13 +2,17 @@
 
 This repository contains the scripts for quality control (QC) steps and CNV calling from the study: [Genome-wide Analysis of Copy Number Variation in Latin American Parkinson’s Disease Patients](https://www.medrxiv.org/content/10.1101/2020.05.29.20100859v2) using [LARGE-PD](https://large-pd.org/) cohort
 
+
 **Usage**:
 
 `Pre_QC.sh` plink command lines for the QC steps before PCA, includes admixture run, and relatedness estimates  
 
 `PennCNV.sh` CNV calling with PennCNV
 
-`Post_QC.sh` command lines for post processing QC steps
+`Post_QC.sh` command lines for post QC filtering steps
+
+`Code_QS.R` uses R script by [Macé et al.](https://pubmed.ncbi.nlm.nih.gov/27402902/) to calculate a quality score (QS) to improve and further filter PennCNV calls. This QS estimates the probability of a CNV called by PennCNV to be confirmed by other software.
+
     
 **Software**:
 

@@ -16,15 +16,15 @@ This repository contains the scripts for quality control (QC) steps and CNV call
 
 **Software**:
 
-1. PLINK 1.9: Chang CC, Chow CC, Tellier LCAM, Vattikuti S, Purcell SM, Lee JJ (2015) Second-generation PLINK: rising to the challenge of larger and richer datasets. GigaScience, 4. URL: https://www.cog-genomics.org/plink2/
+1. [PLINK 1.9:](https://www.cog-genomics.org/plink2/) Chang CC, Chow CC, Tellier LCAM, Vattikuti S, Purcell SM, Lee JJ (2015) Second-generation PLINK: rising to the challenge of larger and richer datasets. GigaScience, 4.
 
-2. ADMIXTURE: Alexander DH, Novembre J, Lange K. (2009) Fast model-based estimation of ancestry in unrelated individuals. Genome Research, 19:1655–1664, 2009. URL: http://software.genetics.ucla.edu/admixture/
+2. [ADMIXTURE:](http://software.genetics.ucla.edu/admixture/) Alexander DH, Novembre J, Lange K. (2009) Fast model-based estimation of ancestry in unrelated individuals. Genome Research, 19:1655–1664, 2009.
 
-3. KING: Manichaikul A, Mychaleckyj JC, Rich SS, Daly K, Sale M, Chen WM (2010) Robust relationship inference in genome-wide association studies. Bioinformatics 26(22):2867-2873. URL: http://people.virginia.edu/~wc9c/KING/
+3. [KING:](http://people.virginia.edu/~wc9c/KING/) Manichaikul A, Mychaleckyj JC, Rich SS, Daly K, Sale M, Chen WM (2010) Robust relationship inference in genome-wide association studies. Bioinformatics 26(22):2867-2873.
 
-4. PennCNV: Wang K, Li M, Hadley D, Liu R, Glessner J, Grant S, Hakonarson H, Bucan M (2007) An integrated hidden Markov model designed for high-resolution copy number variation detection in whole-genome SNP genotyping data. Genome Res. 17, 1665–1674. URL: http://penncnv.openbioinformatics.org/en/latest/
+4. [PennCNV:](http://penncnv.openbioinformatics.org/en/latest/) Wang K, Li M, Hadley D, Liu R, Glessner J, Grant S, Hakonarson H, Bucan M (2007) An integrated hidden Markov model designed for high-resolution copy number variation detection in whole-genome SNP genotyping data. Genome Res. 17, 1665–1674.
 
-5. R: R Core Team (2019). R: A language and environment for statistical computing. R Foundation for Statistical Computing, Vienna, Austria. URL: https://www.R-project.org/
+5. [R:](https://www.R-project.org/) R Core Team (2019). R: A language and environment for statistical computing. R Foundation for Statistical Computing, Vienna, Austria.
 
-6. Perl: The Perl programming language URL: https://www.perl.org/get.html
+6. [Perl:](https://www.perl.org/get.html) The Perl programming language.
 

@@ -11,7 +11,7 @@ This repository contains the scripts for quality control (QC) steps and CNV call
 
 `Post_QC.sh` command lines for post QC filtering steps
 
-`Code_QS.R` for further filtering CNV calls: calculates a quality score (QS) which estimates the probability of a CNV called by PennCNV to be confirmed by other software. R script adapted from [Macé et al.](https://pubmed.ncbi.nlm.nih.gov/27402902/)
+`Code_QS.R` for further filtering CNV calls: calculates a quality score (QS) which estimates the probability of a CNV called by PennCNV to be confirmed by other software, adapted from [Macé et al.](https://pubmed.ncbi.nlm.nih.gov/27402902/)
 
 
 **Software**:

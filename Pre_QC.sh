@@ -17,9 +17,9 @@ plink --bfile LARGE_PD_final_CR_filtered_same_nonMA --bmerge 1kG.bed 1kG.bim 1kG
 ##  Filtering
 # MAF >5%
 plink --bfile For_PCA --maf 0.05 --make-bed --keep-allele-order --out For_PCA_maf5
-# SNP missinigness <2%
+# SNP missingness <2%
 plink --bfile For_PCA_maf5 --geno 0.02 --make-bed --keep-allele-order --out For_PCA_maf5_geno2
-# Missinigness per indiv <5%
+# Missingness per indiv <5%
 plink --bfile For_PCA_maf5_geno2 --mind 0.05 --make-bed --keep-allele-order --out For_PCA_maf5_geno2_mind5
 # HWE p-value >1e-3
 plink --bfile For_PCA_maf5_geno2_mind5 --hwe 0.001 --make-bed --keep-allele-order --out For_PCA_maf5_geno2_mind5_hwe
